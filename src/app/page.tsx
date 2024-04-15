@@ -1,9 +1,28 @@
 import Link from "next/link";
 
+const mockUrls = [
+  "https://utfs.io/f/e101bbc1-cd3b-46c7-85bb-9cf1141d049e-f2i6wk.png",
+  "https://utfs.io/f/9c18d322-8887-4395-9b4a-6db94855245a-f2i6xe.png",
+  "https://utfs.io/f/dc5b6e07-e935-4bcf-bca6-7860c9d2b158-f2hldk.png",
+  "https://utfs.io/f/3c00daec-b41f-4b0a-a359-9873d23578dc-f2hmuz.png",
+  "https://utfs.io/f/1172536a-04e3-4aa9-9a76-6f8242d0f43b-f2i6ux.png"
+]
+
+const mockImages = mockUrls.map((url, index) => ({
+  id: index + 1,
+  url
+}))
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      Hello (gallery in progress)
+    <main className="">
+    <div className="flex flex-wrap gap-4">
+      {[...mockImages, ...mockImages].map((image) => (
+        <div key={image.id} className="w-48">
+          <img src={image.url} alt="image" />
+        </div>
+      ))}
+    </div>
     </main>
   );
 }
